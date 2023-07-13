@@ -1,0 +1,34 @@
+/ Creating Jobs
+-> click 'create new item' 
+-> give it a name 
+-> a task is what is called a 'Job' something to be done
+-> Click on build step and pick 'Execute Shell' 
+-> echo Hello World 
+-> execute job 
+-> check the console
+-> echo 'Who Am I $(whoami)'
+-> echo 'Current date and time is $(date)' > /tmp/info
+=> redirects the content of the tmp 
+=> use cat /tmp/info on your terminal
+
+// Redirect Job Output
+-> echo 'Current date and time is $(date)' > /tmp/info
+=> redirects the content of the tmp 
+=> use cat /tmp/info on your terminal
+
+// Execute Bash Script on Jenkins
+- create a bash script 
+- 
+
+// Adding Params on Jobs
+- on configure, click on 'This project is parameterized' option 
+- Click on 'Add Parameter' 
+- a parameter is an interactive variable which you will be asked when you execute your job 
+
+//Creating a List Parameters 
+- list params are used to pick from a drop down the value we want.
+- pick on choice parameter when you want to list params. 
+
+
+//Add Basic Logic To A Script 
+- /tmp/script.sh $FIRST_NAME $LAST_NAME $SHOW 
