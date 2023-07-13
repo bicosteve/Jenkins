@@ -1,0 +1,5 @@
+EXECUTING JOBS ON REMOTE SERVER 
+- use containers to run ssh service to new containers 
+- create a dockerfile for containers 
+
+# NB: Research on how to connect Jenkins with a remote server 
