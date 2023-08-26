@@ -1,5 +1,14 @@
 pipeline {
     agent any 
+    // Environment Variables
+    environment {
+            NAME ='bix'
+            LASTNAME = 'dudu'
+            
+            //using credentials
+            secret = credentials('TEST')
+            // TEST is the name of the credentials
+        }   
     
     stages {
         stage('Building'){
@@ -33,12 +42,7 @@ pipeline {
             }
         }
 
-        // Environment Variables
-        environment {
-            NAME ='bix'
-            LASTNAME = 'dudu'
-        }
-
+        
         stage('Print Environment'){
             steps {
                 sh 'echo $NAME $LASTNAME'
@@ -48,6 +52,7 @@ pipeline {
         stage('Deploying'){
             steps {
                 echo 'Deploying'
+                sh 'echo $secret'
             }
         }
     }
