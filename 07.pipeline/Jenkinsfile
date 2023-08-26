@@ -1,0 +1,56 @@
+pipeline {
+    agent any 
+    
+    stages {
+        stage('Building'){
+            steps {
+                sh 'echo "Building stage" ' 
+                sh '''
+                    echo "By the way, I can do more stuff in here"
+                    ls -lah
+                '''
+            }
+        }
+        
+        stage('Testing'){
+            steps{
+                echo 'Testing stage'
+                // will run the file three times based on retry(3)  
+            }
+        }
+
+        stage('Timeout'){
+            steps{
+                retry(3){
+                    echo 'Time out stage'
+                    // will run the file three times based on retry(3)
+                }
+
+                timeout(time:3,unit: 'SECONDS'){
+                    sh 'sleep 5'
+                }
+                // this will make the task to timeout after three seconds
+            }
+        }
+
+        // Environment Variables
+        environment {
+            NAME ='bix'
+            LASTNAME = 'dudu'
+        }
+
+        stage('Print Environment'){
+            steps {
+                sh 'echo $NAME $LASTNAME'
+            }
+        }
+        
+        stage('Deploying'){
+            steps {
+                echo 'Deploying'
+            }
+        }
+    }
+}
+
+// This is a simple jenkins pipeline
