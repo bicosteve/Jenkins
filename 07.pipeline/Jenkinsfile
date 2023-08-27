@@ -56,6 +56,26 @@ pipeline {
             }
         }
     }
+
+    //Post Actions
+    post{
+        // 1. Always -> will always get executed
+        always {
+            echo 'I will always get executed'
+        }
+        // 2. success -> only get executed  if the pipeline is a success
+        success {
+            echo 'I will be executed on success'
+        }
+        // 3. failure -> will only get executed when there is failure
+        failure {
+            echo 'I will be executed on failure'
+        }
+        // 4. unstable -> will get executed if there is instability 
+        unstable {
+            echo 'I will be executed when there is instability'
+        }
+    }
 }
 
 // This is a simple jenkins pipeline
